@@ -68,12 +68,12 @@
                 </div>
                 <div class="card">
                     <img src="./assets/images/LATA.svg" alt="Copo de Gengin">
-                    <h2>Lata <span>200ML</span></h2>
+                    <h2>Lata <span>350ML</span></h2>
                     <button>ADQUIRIR</button>
                 </div>
                 <div class="card">
                     <img src="./assets/images/Garrafa.svg" alt="Copo de Gengin">
-                    <h2>Garrafa <span>200ML</span></h2>
+                    <h2>Garrafa <span>2L</span></h2>
                     <button>ADQUIRIR</button>
                 </div>
             </div>
@@ -160,6 +160,71 @@
         <p>Copyright 2023 © - GenGin</p>
     </footer>
 
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Parceiros</h2>
+            <div class="partners">
+                <div class="partner">
+                    <img src="assets/logo.png" alt="Parceiro 1">
+                    <p>GenGin</p>
+                </div>
+                <div class="partner">
+                    <img src="assets/logo.png" alt="Parceiro 2">
+                    <p>GenGin</p>
+                </div>
+                <div class="partner">
+                    <img src="assets/logo.png" alt="Parceiro 2">
+                    <p>GenGinsadsadasdsa</p>
+                </div>
+                <div class="partner">
+                    <img src="assets/logo.png" alt="Parceiro 2">
+                    <p>GenGin</p>
+                </div>
+                <div class="partner">
+                    <img src="assets/logo.png" alt="Parceiro 2">
+                    <p>GenGin</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('popup');
+    const closeBtn = document.querySelector('.close-btn');
+    const parceirosLink = document.querySelector('nav ul li:nth-child(2)'); // Ajuste se a posição do link mudar
 
+    parceirosLink.addEventListener('click', function() {
+        popup.style.display = 'flex';
+    });
+
+    closeBtn.addEventListener('click', function() {
+        popup.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const partners = document.querySelectorAll('.popup-content p');
+
+    partners.forEach(p => {
+        adjustFontSize(p);
+    });
+
+    function adjustFontSize(element) {
+        let fontSize = parseInt(window.getComputedStyle(element).fontSize);
+        while (element.scrollWidth > element.offsetWidth && fontSize > 10) {
+            fontSize--;
+            element.style.fontSize = fontSize + 'px';
+        }
+    }
+});
+
+</script>
 </html>
